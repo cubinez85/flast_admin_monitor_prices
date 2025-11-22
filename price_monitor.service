@@ -1,0 +1,20 @@
+[Unit]
+Description=Price Monitor — Ozon Competitor Tracker
+After=network.target mysql.service
+
+[Service]
+Type=simple
+User=cubinez85
+Group=cubinez85
+WorkingDirectory=/home/cubinez85/projects/check_prices
+Environment=PATH=/home/cubinez85/projects/check_prices/venv/bin
+Environment=VIRTUAL_ENV=/home/cubinez85/projects/check_prices/venv
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 /home/cubinez85/projects/check_prices/app.py
+Restart=always
+RestartSec=30
+StandardOutput=append:/home/cubinez85/projects/check_prices/logs/app.log
+StandardError=append:/home/cubinez85/projects/check_prices/logs/app.log
+
+[Install]
+WantedBy=multi-user.target
