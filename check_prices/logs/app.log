@@ -1,0 +1,45 @@
+/usr/lib/python3/dist-packages/requests/__init__.py:87: RequestsDependencyWarning: urllib3 (2.5.0) or chardet (4.0.0) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+ * Serving Flask app 'app'
+ * Debug mode: off
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.23.132.3:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+🔍 Проверка: grey — https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-wm-4627-touch-inverter-steam-grey-invertornyy-dvigatel-funktsiya-2745289067/?at=OgtEQkKQVhPj5RO3HqvJ29AuEwE1NqcvvzpKofRmo94J
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2025 16:35:29] "GET /admin HTTP/1.1" 200 -
+INFO:Ozon_Price_Extractor:Открываем карточку товара: https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-wm-4627-touch-inverter-steam-grey-invertornyy-dvigatel-funktsiya-2745289067/?at=OgtEQkKQVhPj5RO3HqvJ29AuEwE1NqcvvzpKofRmo94J
+INFO:Ozon_Price_Extractor:✅ Найдена цена: 25336 ₽ на https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-wm-4627-touch-inverter-steam-grey-invertornyy-dvigatel-funktsiya-2745289067/?at=OgtEQkKQVhPj5RO3HqvJ29AuEwE1NqcvvzpKofRmo94J
+📩 Отправка уведомления: переплата 1164 ₽
+✅ Уведомление отправлено в Telegram
+🔍 Проверка: stream — https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-uzkaya-wm-45127-dc-inverter-steam-s-invertorom-i-parom-glubina-45-1363188285/?at=Y7tjBXxBRsjL9Zr2C7vNXq9IXEX27JTpy9xqETjNmRAO
+INFO:Ozon_Price_Extractor:Открываем карточку товара: https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-uzkaya-wm-45127-dc-inverter-steam-s-invertorom-i-parom-glubina-45-1363188285/?at=Y7tjBXxBRsjL9Zr2C7vNXq9IXEX27JTpy9xqETjNmRAO
+INFO:Ozon_Price_Extractor:✅ Найдена цена: 23032 ₽ на https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-uzkaya-wm-45127-dc-inverter-steam-s-invertorom-i-parom-glubina-45-1363188285/?at=Y7tjBXxBRsjL9Zr2C7vNXq9IXEX27JTpy9xqETjNmRAO
+📩 Отправка уведомления: переплата 968 ₽
+✅ Уведомление отправлено в Telegram
+🔄 Цикл проверки завершён
+INFO:Ozon_Price_Extractor:Открываем карточку товара: https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-wm-4627-touch-inverter-steam-grey-invertornyy-dvigatel-funktsiya-2745289067/?at=OgtEQkKQVhPj5RO3HqvJ29AuEwE1NqcvvzpKofRmo94J
+INFO:Ozon_Price_Extractor:✅ Найдена цена: 25336 ₽ на https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-wm-4627-touch-inverter-steam-grey-invertornyy-dvigatel-funktsiya-2745289067/?at=OgtEQkKQVhPj5RO3HqvJ29AuEwE1NqcvvzpKofRmo94J
+✅ grey: переплата -836 ₽ (порог: 500)
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2025 16:49:21] "[32mPOST /admin/edit/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2025 16:49:21] "GET /admin HTTP/1.1" 200 -
+INFO:Ozon_Price_Extractor:Открываем карточку товара: https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-uzkaya-wm-45127-dc-inverter-steam-s-invertorom-i-parom-glubina-45-1363188285/?at=Y7tjBXxBRsjL9Zr2C7vNXq9IXEX27JTpy9xqETjNmRAO
+INFO:Ozon_Price_Extractor:✅ Найдена цена: 23485 ₽ на https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-uzkaya-wm-45127-dc-inverter-steam-s-invertorom-i-parom-glubina-45-1363188285/?at=Y7tjBXxBRsjL9Zr2C7vNXq9IXEX27JTpy9xqETjNmRAO
+✅ stream: переплата -1025 ₽ (порог: 500)
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2025 16:49:49] "[32mPOST /admin/edit/1 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2025 16:49:49] "GET /admin HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2025 16:50:32] "[32mPOST /admin/set-threshold HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2025 16:50:32] "GET /admin HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2025 16:50:36] "GET /admin HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [22/Nov/2025 17:14:48] "GET /check HTTP/1.1" 200 -
+🔍 Проверка: grey — https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-wm-4627-touch-inverter-steam-grey-invertornyy-dvigatel-funktsiya-2745289067/?at=OgtEQkKQVhPj5RO3HqvJ29AuEwE1NqcvvzpKofRmo94J
+INFO:Ozon_Price_Extractor:Открываем карточку товара: https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-wm-4627-touch-inverter-steam-grey-invertornyy-dvigatel-funktsiya-2745289067/?at=OgtEQkKQVhPj5RO3HqvJ29AuEwE1NqcvvzpKofRmo94J
+INFO:Ozon_Price_Extractor:✅ Найдена цена: 25336 ₽ на https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-wm-4627-touch-inverter-steam-grey-invertornyy-dvigatel-funktsiya-2745289067/?at=OgtEQkKQVhPj5RO3HqvJ29AuEwE1NqcvvzpKofRmo94J
+✅ grey: переплата -836 ₽ (порог: 500)
+🔍 Проверка: stream — https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-uzkaya-wm-45127-dc-inverter-steam-s-invertorom-i-parom-glubina-45-1363188285/?at=Y7tjBXxBRsjL9Zr2C7vNXq9IXEX27JTpy9xqETjNmRAO
+INFO:Ozon_Price_Extractor:Открываем карточку товара: https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-uzkaya-wm-45127-dc-inverter-steam-s-invertorom-i-parom-glubina-45-1363188285/?at=Y7tjBXxBRsjL9Zr2C7vNXq9IXEX27JTpy9xqETjNmRAO
+INFO:Ozon_Price_Extractor:✅ Найдена цена: 20637 ₽ на https://www.ozon.ru/product/weissgauff-stiralnaya-mashina-uzkaya-wm-45127-dc-inverter-steam-s-invertorom-i-parom-glubina-45-1363188285/?at=Y7tjBXxBRsjL9Zr2C7vNXq9IXEX27JTpy9xqETjNmRAO
+📩 Отправка уведомления: переплата 1823 ₽
+✅ Уведомление отправлено в Telegram
+🔄 Цикл проверки завершён

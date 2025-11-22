@@ -1,0 +1,50 @@
+в браузере: http://localhost:5000/admin
+
+установка по единому установочному скрипту (install.sh): chmod +x install.sh
+./install.sh
+
+установка в ручную:
+список всех установленных компонентов и зависимостей (без pip list), включая системные пакеты и MySQL, необходимые для работы вашего проекта мониторинга цен на Ozon в Ubuntu 22.04 (включая WSL2):
+sudo apt update && sudo apt install -y \
+    python3 \
+    python3-pip \
+    python3-venv \
+    mysql-server \
+    mysql-client \
+    wget \
+    gnupg \
+    unzip \
+    software-properties-common \
+    libmysqlclient-dev \
+    build-essential
+Google Chrome (обязателен для Selenium)
+# Добавление ключа и репозитория
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google-chrome-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+
+# Установка
+sudo apt update
+sudo apt install -y google-chrome-stable
+ ChromeDriver (для управления Chrome через Selenium):
+# Определение версии Chrome
+CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+
+# Получение совместимой версии ChromeDriver
+DRIVER_VERSION=$(curl -s "https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions.json" | python3 -c "import sys, json; data=json.load(sys.stdin); print(data['channels']['Stable']['version'])")
+
+# Скачивание и установка
+wget -O /tmp/chromedriver.zip https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${DRIVER_VERSION}/linux64/chromedriver-linux64.zip
+sudo unzip /tmp/chromedriver.zip -d /usr/local/bin/
+sudo mv /usr/local/bin/chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
+sudo chmod +x /usr/local/bin/chromedriver
+chromedriver --version
+
+ MySQL Server (настройка и пользователь):
+sudo systemctl start mysql
+sudo systemctl enable mysql
+
+-- Вход в MySQL: sudo mysql -u root
+CREATE DATABASE price_monitor DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'price_user'@'localhost' IDENTIFIED BY 'ваш_надёжный_пароль';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE ON price_monitor.* TO 'price_user'@'localhost';
+FLUSH PRIVILEGES;

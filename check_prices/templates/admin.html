@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мониторинг цен — Админка</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding: 20px; background: #f8f9fa; }
+        .product-card { margin-bottom: 1.5rem; }
+        .price-badge { font-size: 1.1em; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 class="mb-4">⚙️ Панель управления мониторингом цен</h2>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5>Порог уведомления</h5>
+            <form method="POST" action="/admin/set-threshold" class="row g-2">
+                <div class="col-auto">
+                    <input type="number" name="threshold" value="{{ threshold }}" class="form-control" min="1">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </div>
+                <div class="col-auto">
+                    Уведомлять, если ваша цена ВЫШЕ цены Ozon на эту сумму (₽)
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <h4>Товары (всего: {{ products|length }})</h4>
+    {% for p in products %}
+    <div class="card product-card">
+        <div class="card-body">
+            <form method="POST" action="/admin/edit/{{ p.id }}" class="row g-2 align-items-end">
+                <div class="col-md-2">
+                    <input type="text" name="name" value="{{ p.name }}" class="form-control" placeholder="Название" required>
+                </div>
+                <div class="col-md-4">
+                    <input type="url" name="url" value="{{ p.url }}" class="form-control" placeholder="Ссылка на Ozon" required>
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="my_price" value="{{ p.my_price }}" class="form-control" min="1" required>
+                </div>
+                <div class="col-md-2">
+                    {% if p.last_competitor_price %}
+                        <span class="badge bg-info price-badge">Ozon: {{ p.last_competitor_price }} ₽</span>
+                    {% else %}
+                        <span class="badge bg-secondary">Цена не проверялась</span>
+                    {% endif %}
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-sm btn-success">Сохранить</button>
+                    <a href="/admin/delete/{{ p.id }}" class="btn btn-sm btn-danger" onclick="return confirm('Удалить?')">Удалить</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="card mt-4">
+        <div class="card-header">➕ Добавить новый товар</div>
+        <div class="card-body">
+            <form method="POST" action="/admin/add" class="row g-2">
+                <div class="col-md-2">
+                    <input type="text" name="name" class="form-control" placeholder="Название" required>
+                </div>
+                <div class="col-md-4">
+                    <input type="url" name="url" class="form-control" placeholder="Ссылка на Ozon" required>
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="my_price" class="form-control" min="1" placeholder="Ваша цена" required>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary">Добавить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a href="/check" class="btn btn-warning" target="_blank">🔄 Запустить проверку вручную</a>
+        <a href="/admin/logout" class="btn btn-outline-secondary">Выйти</a>
+    </div>
+</div>
+</body>
+</html>
